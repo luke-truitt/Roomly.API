@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomly.API", "Roomly.API\Roomly.API.csproj", "{927DC52B-5915-4A15-868C-FE3803ED17F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomly.API.Contracts", "Roomly.API.Contracts\Roomly.API.Contracts.csproj", "{6C9B0D42-F573-448F-BFEE-B06D720788A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomly.API.Clients", "Roomly.API.Clients\Roomly.API.Clients.csproj", "{BC8712B8-7349-4D52-A2EF-9B78F5D2721E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomly.Business", "Roomly.Business\Roomly.Business.csproj", "{BBDFA210-D043-4A69-9763-D52793EDE971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomly.Data", "Roomly.Data\Roomly.Data.csproj", "{B8EF731B-8D53-426E-B008-3E4891958D79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{927DC52B-5915-4A15-868C-FE3803ED17F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927DC52B-5915-4A15-868C-FE3803ED17F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927DC52B-5915-4A15-868C-FE3803ED17F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927DC52B-5915-4A15-868C-FE3803ED17F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C9B0D42-F573-448F-BFEE-B06D720788A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9B0D42-F573-448F-BFEE-B06D720788A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9B0D42-F573-448F-BFEE-B06D720788A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9B0D42-F573-448F-BFEE-B06D720788A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC8712B8-7349-4D52-A2EF-9B78F5D2721E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC8712B8-7349-4D52-A2EF-9B78F5D2721E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC8712B8-7349-4D52-A2EF-9B78F5D2721E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC8712B8-7349-4D52-A2EF-9B78F5D2721E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBDFA210-D043-4A69-9763-D52793EDE971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDFA210-D043-4A69-9763-D52793EDE971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDFA210-D043-4A69-9763-D52793EDE971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDFA210-D043-4A69-9763-D52793EDE971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8EF731B-8D53-426E-B008-3E4891958D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EF731B-8D53-426E-B008-3E4891958D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8EF731B-8D53-426E-B008-3E4891958D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8EF731B-8D53-426E-B008-3E4891958D79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC361CAB-A1DC-4345-A096-1C16FF183E8A}
+	EndGlobalSection
+EndGlobal

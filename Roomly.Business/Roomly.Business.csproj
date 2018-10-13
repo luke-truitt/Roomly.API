@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Roomly.API.Contracts\Roomly.API.Contracts.csproj" />
+    <ProjectReference Include="..\Roomly.Data\Roomly.Data.csproj" />
+  </ItemGroup>
+
 </Project>

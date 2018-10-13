@@ -3,43 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Roomly.API.Contracts;
+using Roomly.Business;
 
 namespace Roomly.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    [Produces("application/json")]
+    public class QuestionsController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        private readonly IQuestionService _questionService;
+
+        public QuestionsController(IQuestionService questionService)
         {
-            return new string[] { "value1", "value2" };
+            _questionService = questionService;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        
+        [HttpGet("/questions/")]
+        public ActionResult<List<Question>> Get()
         {
-            return "value";
+            var models = _questionService.Get();
+            return models;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        
+        [HttpGet("/questions/{questionId}")]
+        public ActionResult<Question> Get(Guid questionId)
         {
+            var model = _questionService.Get(questionId);
+            return model;
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+       
+        [HttpPost("/questions/")]
+        public Question Post([FromBody] Question model)
         {
+            var entity = _questionService.Get(model.QuestionId);
+            var result = new Question();
+            if (entity == null)
+            {
+                result = _questionService.Create(model);
+                return result;
+            }
+
+            result = _questionService.Update(model);
+            return result;
+
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+     
+        [HttpPut("/questions/{questionId}")]
+        public Question Put(Guid questionId, [FromBody] Question model)
         {
+            return Post(model);
+            
+        }
+
+
+        [HttpDelete("/questions/{questionId}")]
+        public void Delete(Guid questionId)
+        {
+            var model = _questionService.Get(questionId);
+            model.IsDeleted = true;
+            model.IsActive = false;
+            _questionService.Update(model);
         }
     }
 }

@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Roomly.API.Configuration;
+using Roomly.Business.Configuration;
+using Roomly.Data.Configuration;
 
 namespace Roomly.API
 {
@@ -17,14 +20,21 @@ namespace Roomly.API
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private readonly IConfiguration _configuration;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services
+                .ConfigureServices(_configuration)
+                .ConfigureBusinessServices()
+                .ConfigureDataServices(_configuration)
+                .ConfigureIdentity(_configuration)
+                .ConfigureCors(_configuration)
+                .ConfigureSwagger();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -40,8 +50,16 @@ namespace Roomly.API
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            app
+                .RegisterIdentity()
+                .RegisterServices()
+                .RegisterCors()
+                .RegisterSwagger();
+
+            app
+                .UseDefaultFiles()
+                .UseStaticFiles()
+                .UseMvc();
         }
     }
 }

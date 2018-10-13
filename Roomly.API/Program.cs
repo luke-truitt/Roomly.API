@@ -15,10 +15,10 @@ namespace Roomly.API
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Run();
+            BuildWebHost(args).Run();
         }
 
-        public static IWebHost CreateWebHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseApplicationInsights()
                 .UseStartup<Startup>()

@@ -20,18 +20,18 @@ namespace Roomly.API.Controllers
 
         
         [HttpGet("/questions/")]
-        public ActionResult<List<Question>> Get()
+        public IActionResult Get()
         {
             var models = _questionService.Get();
-            return models;
+            return Ok(models);
         }
 
         
         [HttpGet("/questions/{questionId}")]
-        public ActionResult<Question> Get(Guid questionId)
+        public IActionResult Get(Guid questionId)
         {
             var model = _questionService.Get(questionId);
-            return model;
+            return Ok(model);
         }
 
        

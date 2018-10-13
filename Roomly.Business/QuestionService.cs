@@ -27,7 +27,13 @@ namespace Roomly.Business
 
         public Question Get(Guid id)
         {
-            var model = _repository.Get(id).ToModel();
+            var entity = _repository.Get(id);
+            if (entity == null)
+            {
+                return null;
+            }
+
+            var model = entity.ToModel();
             return model;
         }
 

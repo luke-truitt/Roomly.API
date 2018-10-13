@@ -19,7 +19,7 @@ namespace Roomly.Data.Configuration
 
         private static IServiceCollection ConfigureDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<RoomlyContext>(options => options.UseSqlServer(configuration.GetConnectionString("PortalsDbConnection")));
+            services.AddDbContext<RoomlyContext>(options => options.UseSqlServer(configuration.GetConnectionString("RoomlyDbConnection")));
             var context = services.GetService<RoomlyContext>();
             context.Database.Migrate();
 
